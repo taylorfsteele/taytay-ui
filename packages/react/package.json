@@ -10,8 +10,8 @@
     "lint": "eslint . --max-warnings 0",
     "test": "vitest run --coverage",
     "test:watch": "vitest --coverage",
-    "build": "rm -rf dist/; rollup -c --configPlugin typescript",
-    "build-storybook": "storybook build",
+    "build": "storybook build",
+    "build-package": "rm -rf dist/; rollup -c --configPlugin typescript",
     "generate:component": "turbo gen react-component"
   },
   "exports": {
