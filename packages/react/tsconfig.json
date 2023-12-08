@@ -1,0 +1,11 @@
+{
+  "extends": "@taytay-ui/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
+  },
+  "include": ["src", "vite.config.ts", "testSetup.ts"],
+  "exclude": ["node_modules", "dist"]
+}

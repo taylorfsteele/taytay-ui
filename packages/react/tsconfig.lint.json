@@ -1,0 +1,8 @@
+{
+  "extends": "@taytay-ui/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["src", "turbo", "vite.config.ts", "rollup.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}
