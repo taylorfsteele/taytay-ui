@@ -155,7 +155,7 @@ jobs:
   build-storybooks:
     runs-on: ubuntu-latest
     needs: install
-    if: github.event.paths | contains('packages/')
+    if: contains(github.event.pull_request.head.ref, 'packages/react')
 
     steps:
       - name: Checkout
