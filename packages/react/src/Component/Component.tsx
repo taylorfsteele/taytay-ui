@@ -1,5 +1,3 @@
-export interface ComponentProps {}
-
-export const Component = ({}: ComponentProps) => {
+export const Component = () => {
   return <>Component</>;
 };
