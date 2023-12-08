@@ -7,7 +7,7 @@
     "test": "turbo test",
     "build": "turbo build",
     "build:storybook": "turbo build:storybook",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish"
   },
   "devDependencies": {
     "@taytay-ui/eslint-config": "workspace:*",
@@ -18,5 +18,8 @@
   "packageManager": "pnpm@8.11.0",
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.1"
   }
 }
