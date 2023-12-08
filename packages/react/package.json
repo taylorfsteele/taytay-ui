@@ -11,7 +11,7 @@
     "test": "vitest run --coverage",
     "test:watch": "vitest --coverage",
     "build": "rollup -c --configPlugin typescript",
-    "build-storybook": "storybook build",
+    "build:storybook": "storybook build",
     "generate:component": "turbo gen react-component"
   },
   "exports": {

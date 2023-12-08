@@ -151,3 +151,43 @@ jobs:
 
       - name: Run builds
         run: pnpm build
+
+  build-storybooks:
+    runs-on: ubuntu-latest
+    needs: install
+    if: github.event.paths | contains('packages/')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - name: Restore cached pnpm install
+        id: cache-pnpm-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - if: ${{ steps.cache-pnpm-restore.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: pnpm list
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run build:storybook
+        run: pnpm build:storybook
