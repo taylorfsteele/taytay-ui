@@ -1,0 +1,14 @@
+:root[data-theme="taytay-ui-default"] {
+  --brandPrimary: skyblue;
+  --brandSecondary: deeppink;
+  --gray100: #cacaca;
+  --gray200: #a8a9ad;
+  --gray300: #969eab;
+  --gray400: #6d7582;
+  --gray500: #4b4e5a;
+  --gray600: #474a53;
+  --gray700: #40424a;
+  --gray800: #31343e;
+  --gray900: #1a1d29;
+  --gray1000: #0e0b14;
+}

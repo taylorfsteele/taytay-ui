@@ -1,0 +1,6 @@
+{
+  "extends": "@taytay-ui/typescript-config/base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx"
+  }
+}
