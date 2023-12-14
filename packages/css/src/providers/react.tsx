@@ -1,14 +1,13 @@
 "use client";
 
-import { createContext, ReactNode, type Dispatch, type SetStateAction, useState, useContext } from "react";
-import type { ThemeNames } from "../index";
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface Nothing {}
-/**
- * Allows intellisense to suggest {@link https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html template literal types} and any other string.
- */
-type Union<T, U> = T | (U & Nothing);
+import {
+  createContext,
+  useContext,
+  useState,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+} from "react";
 
 interface ThemeContextProps {
   /**
