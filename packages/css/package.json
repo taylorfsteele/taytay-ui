@@ -2,6 +2,7 @@
   "name": "@taytay-ui/css",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "keywords": [
     "Tay",
     "Tay"
@@ -10,7 +11,8 @@
   "types": "src/index.ts",
   "scripts": {
     "build": "tsup",
-    "generate": "ts-node generateConfigs.ts && prettier --write src/{vanilla,css-modules,tailwind}/*.{js,css} --no-error-on-unmatched-pattern"
+    "lint": "eslint . --max-warnings 0",
+    "generate": "tsx src/generateConfigs.ts && prettier --write src/{vanilla,css-modules,tailwind}/*.{js,ts,css} --no-error-on-unmatched-pattern"
   },
   "exports": {
     ".": {
@@ -19,17 +21,20 @@
       "default": "./src/index.ts"
     },
     "./vanilla/*": "./src/vanilla/*",
-    "./css-modules/*": "./src/css-modules/*",
+    "./css-modules/*": {
+      "import": "./src/css-modules/*",
+      "types": "./src/css-modules/*.d.ts"
+    },
     "./tailwind/*": "./src/tailwind/*"
   },
   "publishConfig": {
-    "main": "dist/index.mjs",
+    "main": "dist/index.js",
     "types": "dist/index.d.mts",
     "exports": {
       ".": {
-        "import": "./dist/index.mjs",
+        "import": "./dist/index.js",
         "types": "./dist/index.d.mts",
-        "default": "./dist/index.js"
+        "default": "./dist/index.cjs"
       },
       "./vanilla/*": "./src/vanilla/*",
       "./css-modules/*": "./src/css-modules/*",
@@ -42,28 +47,45 @@
   "author": "Taylor Steele",
   "license": "ISC",
   "devDependencies": {
+    "@taytay-ui/eslint-config": "workspace:^",
     "@taytay-ui/typescript-config": "workspace:*",
     "@types/node": "^20.10.4",
     "@types/react": "^18.2.43",
+    "eslint": "^8.55.0",
     "react": "^18.2.0",
     "tailwindcss": "^3.3.6",
-    "ts-node": "^10.9.2",
     "tsup": "^8.0.1",
+    "tsx": "^4.6.2",
     "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "react": "^18.2.0"
   },
-  "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
-    "sourcemap": true,
-    "clean": true,
-    "dts": true,
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "tsup": [
+    {
+      "entry": {
+        "providers/react": "src/providers/react.tsx"
+      },
+      "clean": true,
+      "sourcemap": "inline",
+      "dts": true,
+      "format": [
+        "cjs",
+        "esm"
+      ]
+    },
+    {
+      "entry": [
+        "src/index.ts"
+      ],
+      "clean": true,
+      "sourcemap": "inline",
+      "bundle": false,
+      "dts": true,
+      "format": [
+        "cjs",
+        "esm"
+      ]
+    }
+  ]
 }

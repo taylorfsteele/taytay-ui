@@ -1,11 +1,11 @@
 import { writeFile } from "fs/promises";
-import { Config } from "tailwindcss";
+import type { Config } from "tailwindcss";
 
 const organizeColorTokens = (tokens: Record<string, string>) =>
   Object.entries(tokens).reduce((prevValue, [key, value]) => {
     if (!/\d/.test(key)) return { ...prevValue, [key]: value };
     const baseKey = key.replace(/\d.*/, "");
-    const number = key.match(/\d+.*/)![0];
+    const number = key.match(/\d+.*/)?.[0] ?? 100;
     const nestedColors = prevValue[baseKey as keyof typeof prevValue] as Record<string, string>;
 
     return {
@@ -32,7 +32,7 @@ const toCamelCase = (str: string) => str.trim().replace(/[-_\s]+(.)?/g, (_, c) =
 export const createThemeTokenExports = (tokensByName: Record<string, Record<string, string>>) => {
   const colorTokensExports = Object.entries(tokensByName)
     .map(
-      ([key, tokens]: [string, Record<string, any>]) =>
+      ([key, tokens]: [string, Record<string, string>]) =>
         `export const ${toCamelCase(key)}ThemeTokens = ${JSON.stringify(organizeColorTokens(tokens))}`,
     )
     .join("\n");
