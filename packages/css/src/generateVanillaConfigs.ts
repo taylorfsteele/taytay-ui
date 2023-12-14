@@ -5,7 +5,7 @@ const getCssProperties = (tokens: Record<string, string>) =>
     .map(([key, value]) => `--${key}: ${value || "none"};`)
     .join("\n");
 
-export const createVanillaCSSConfig = (tokens: Record<string, string>, name: string = "") => {
+export const createVanillaCSSConfig = (tokens: Record<string, string>, name: string) => {
   const cssProperties = getCssProperties(tokens);
 
   try {

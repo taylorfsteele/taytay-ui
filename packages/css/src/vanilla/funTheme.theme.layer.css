@@ -1,7 +1,7 @@
 @layer taytay-ui {
-  .taytayUiDefault {
-    --brandPrimary: skyblue;
-    --brandSecondary: deeppink;
+  :root[data-theme="funTheme"] {
+    --brandPrimary: coral;
+    --brandSecondary: darkslateblue;
     --gray100: #cacaca;
     --gray200: #a8a9ad;
     --gray300: #969eab;

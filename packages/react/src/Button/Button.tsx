@@ -1,7 +1,6 @@
 "use client";
 
 import { type ReactNode } from "react";
-import "@taytay-ui/css/vanilla/taytay-ui-default.css";
 
 export interface ButtonProps {
   children: ReactNode;

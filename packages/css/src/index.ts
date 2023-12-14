@@ -1,5 +1,9 @@
-export * from "./providers/react";
+import { coolTheme, funTheme } from "../tokens";
 
 export const themes = {
-  default: "default",
+  coolTheme,
+  funTheme,
 };
+
+export type ThemeNames = keyof typeof themes;
+export * from "./providers/react";

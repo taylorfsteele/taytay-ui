@@ -22,6 +22,6 @@ The steps here will be:
 
 ## How does this repo work?
 
-This repo doesn't have a traditional build step with a distribution folder; instead we export all the folders in the `src` that contains subfolders for each individual styling solution technology.
+This package exports both a bundled dist folder and the subfolders in the `src` directory. This is to maintain a git history of the configs, and to enable easy code generation for TayTay CLI.
 
 These files are specific to each styling solution and can often have different files or options available to them.
