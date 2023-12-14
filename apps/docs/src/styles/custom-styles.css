@@ -2,6 +2,10 @@
   --sl-content-width: 55rem;
 }
 
+article.card {
+	border-radius: 8px;
+}
+
 /* Dark mode colors. */
 :root {
 	--sl-color-accent-low: #00273d;

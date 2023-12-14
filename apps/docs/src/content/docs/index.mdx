@@ -1,36 +1,36 @@
 ---
-title: Welcome to Starlight
+title: Welcome to TayTay UI
 description: Get started building your docs site with Starlight.
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  title: A <span style='color:var(--sl-color-text-accent)'>fully featured</span> component library
+  tagline: Build fully functional accessible web applications with context-aware theming. TayTay UI includes more than 1,000,000 components and 500,000 hooks to accelerate development in any situation.
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Get Started
+      link: /getting-started/introduction/
       icon: right-arrow
       variant: primary
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+    - text: Github
+      link: https://github.com/taylorfsteele/taytay-ui
+      icon: github
+      variant: secondary
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
-## Next steps
-
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+<CardGrid>
+  <Card title="Use Anywhere" icon="rocket" >
+    Use components in multiple frameworks: React, Solid, Vue, Web Components, and SSR Frameworks.
+  </Card>
+  <Card title="TypeScript Based" icon="star">
+    Build type safe applications. All components, hooks, and utilities export types.
+  </Card>
+  <Card title="Flexible Styling" icon="open-book">
+    Use your favorite styling solution with TayTay CSS. Components use CSS `@layer` to easily modify styles.
+  </Card>
+  <Card title="Context Aware Theming" icon="sun">
+    Add a theme from TayTay CSS, and your components will automatically update to match your theme.
+  </Card>
 </CardGrid>

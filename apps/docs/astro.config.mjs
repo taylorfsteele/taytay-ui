@@ -8,7 +8,7 @@ export default defineConfig({
       components: {
         Head: "./src/components/Head.astro",
       },
-      title: "My Docs",
+      title: "TayTay UI",
       social: {
         github: "https://github.com/taylorfsteele/taytay-ui",
       },
@@ -18,11 +18,12 @@ export default defineConfig({
           autogenerate: { directory: "getting-started" },
         },
         {
-          label: "Guides",
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: "Example Guide", link: "/guides/example/" },
-          ],
+          label: "Styling",
+          autogenerate: { directory: "styling" },
+        },
+        {
+          label: "Components",
+          autogenerate: { directory: "/components" },
         },
         {
           label: "Reference",
