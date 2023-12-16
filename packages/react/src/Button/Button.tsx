@@ -3,9 +3,10 @@
 import { type ReactNode } from "react";
 
 export interface ButtonProps {
+  disabled?: boolean;
   children: ReactNode;
 }
 
-export const Button = ({ children }: ButtonProps) => {
-  return <button>{children}</button>;
+export const Button = ({ children, disabled }: ButtonProps) => {
+  return <button disabled={disabled}>{children}</button>;
 };

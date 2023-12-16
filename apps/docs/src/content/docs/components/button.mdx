@@ -3,9 +3,13 @@ title: Button
 description: Button docs
 ---
 
-import {ComponentPlayground} from "../../../components/ComponentPlayground"
+import { ComponentPlayground } from "../../../components/ComponentPlayground";
 
-<ComponentPlayground client:load component="Component" 
-
-
-things={[{control: 'switch', propName: 'cool', defaultValue: true}]}/>
+<ComponentPlayground
+  client:load
+  component="Button"
+  propData={[
+    { propName: "children", defaultValue: "hello" },
+    { propName: "disabled", defaultValue: false, control: "switch" },
+  ]}
+/>

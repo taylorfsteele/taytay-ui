@@ -1,11 +1,6 @@
 import { Button, Component, type ButtonProps, type ComponentProps } from "@taytay-ui/react";
-import {
-  useState,
-  type ButtonHTMLAttributes,
-  type ComponentType,
-  type HTMLAttributes,
-  type InputHTMLAttributes,
-} from "react";
+import { useState, type ComponentType, type InputHTMLAttributes } from "react";
+import { playground, componentDemo, controls } from "./ComponentPlayground.module.css";
 
 /**
  * We have to use this pattern of making a singleton of all the components
@@ -33,9 +28,9 @@ export interface ComponentPlaygroundProps<
   K extends keyof ComponentPropsType[T],
 > {
   component: T;
-  things?: {
+  propData?: {
     propName: K;
-    control: "input" | "switch";
+    control?: "input" | "switch";
     defaultValue: ComponentPropsType[T][K];
     options?: ComponentPropsType[T][K][];
   }[];
@@ -66,10 +61,10 @@ export const ComponentPlayground = <
   K extends keyof ComponentPropsType[T],
 >({
   component,
-  things = [],
+  propData = [],
 }: ComponentPlaygroundProps<T, K>) => {
   const Component = allComponents[component];
-  const allProps = things.reduce(
+  const allProps = propData.reduce(
     (prevValue, currValue) => ({
       ...prevValue,
       [currValue.propName]: currValue.defaultValue,
@@ -80,27 +75,34 @@ export const ComponentPlayground = <
   const [propsState, setPropsState] = useState(allProps);
 
   return (
-    <>
-      {things.map((propConfig) => {
-        const ControlComponent = controlComponents[propConfig.control];
+    <div className={`${playground} not-content`}>
+      <div className={componentDemo}>
+        <Component {...propsState} />
+      </div>
+      <div className={`${controls}`}>
+        <p>Playground</p>
+        <hr />
+        {propData.map((propConfig, index) => {
+          if (!propConfig.control) return null;
 
-        return (
-          <ControlComponent
-            handleUpdateProps={(value) =>
-              setPropsState((prev: Record<string, any>) => ({
-                ...prev,
-                [propConfig.propName]: value,
-              }))
-            }
-          />
-        );
-      })}
-      <Component {...propsState} />
-    </>
+          const ControlComponent = controlComponents[propConfig.control];
+
+          return (
+            <>
+              <label>{propConfig.propName.toString()}</label>
+              <ControlComponent
+                key={index}
+                handleUpdateProps={(value) =>
+                  setPropsState((prev: Record<string, any>) => ({
+                    ...prev,
+                    [propConfig.propName]: value,
+                  }))
+                }
+              />
+            </>
+          );
+        })}
+      </div>
+    </div>
   );
 };
-
-<ComponentPlayground
-  component="Button"
-  things={[{ control: "input", propName: "children", defaultValue: "nice" }]}
-/>;

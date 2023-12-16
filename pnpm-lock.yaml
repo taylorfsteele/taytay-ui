@@ -63,6 +63,10 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
+    devDependencies:
+      typescript-plugin-css-modules:
+        specifier: ^5.0.2
+        version: 5.0.2(typescript@5.3.3)
 
   configs/eslint-config:
     devDependencies:
