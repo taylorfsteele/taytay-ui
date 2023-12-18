@@ -9,7 +9,8 @@ import { ComponentPlayground } from "../../../components/ComponentPlayground";
   client:load
   component="Button"
   propData={[
-    { propName: "children", defaultValue: "hello" },
     { propName: "disabled", defaultValue: false, control: "switch" },
+    { propName: "children", defaultValue: "hello", control: 'input', label: 'Placeholder' },
+    { propName: "type", defaultValue: "button", control: 'radio', options: ['button', 'submit', 'reset'] },
   ]}
 />
