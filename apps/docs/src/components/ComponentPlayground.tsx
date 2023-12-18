@@ -1,4 +1,4 @@
-import { Button, Component, type ButtonProps, type ComponentProps } from "@taytay-ui/react";
+import { Button, type ButtonProps } from "@taytay-ui/react";
 import { useState, type ComponentType, type InputHTMLAttributes } from "react";
 import {
   playground,
@@ -28,7 +28,6 @@ import * as RadioGroup from "@radix-ui/react-radio-group";
  */
 const allComponents = {
   Button: Button as ComponentType<ButtonProps>,
-  Component: Component as ComponentType<ComponentProps>,
 };
 
 type ComponentPropsType = {
