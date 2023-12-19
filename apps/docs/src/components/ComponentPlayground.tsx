@@ -1,18 +1,21 @@
+import * as RadioGroup from "@radix-ui/react-radio-group";
+import { ReactThemeProvider, useReactTheme } from "@taytay-ui/css";
+import { coolTheme, funTheme } from "@taytay-ui/css/css-modules/themes.layer.module.css";
 import { Button, type ButtonProps } from "@taytay-ui/react";
 import { useState, type ComponentType, type InputHTMLAttributes } from "react";
 import {
-  playground,
   componentDemo,
   controls,
-  title,
-  components,
-  switchComponent,
-  inputComponent,
-  radioComponent,
-  item,
   indicator,
+  inputComponent,
+  item,
+  playground,
+  radioComponent,
+  switchComponent,
+  title,
 } from "./ComponentPlayground.module.css";
-import * as RadioGroup from "@radix-ui/react-radio-group";
+
+const supportedThemes = { "Cool Theme": coolTheme, "Fun Theme": funTheme };
 
 /**
  * We have to use this pattern of making a singleton of all the components
@@ -79,18 +82,30 @@ const RadioControl = ({
     <span>{label}</span>
     <RadioGroup.Root className={radioComponent} defaultValue={defaultValue} onValueChange={onValueChange}>
       {options.map((option, index) => (
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <>
           <RadioGroup.Item className={item} value={option} id={`rg-${index}`}>
             <RadioGroup.Indicator className={indicator} />
           </RadioGroup.Item>
-          <label className="Label" htmlFor={`rg-${index}`}>
-            {option}
-          </label>
-        </div>
+          <label htmlFor={`rg-${index}`}>{option}</label>
+        </>
       ))}
     </RadioGroup.Root>
   </div>
 );
+
+const ThemeSelect = () => {
+  const { theme, setTheme } = useReactTheme();
+
+  return (
+    <select name="theme" onChange={(e) => setTheme(e.target.value)}>
+      {Object.keys(supportedThemes).map((themeName) => (
+        <option selected={themeName === theme} value={themeName}>
+          {themeName}
+        </option>
+      ))}
+    </select>
+  );
+};
 
 export const ComponentPlayground = <
   T extends keyof typeof allComponents,
@@ -112,14 +127,15 @@ export const ComponentPlayground = <
   const [propsState, setPropsState] = useState(allProps);
 
   return (
-    <div className={`${playground} not-content`}>
-      <div className={componentDemo}>
-        <Component {...propsState} />
-      </div>
-      <div className={controls}>
-        <p className={title}>Playground</p>
-        <hr />
-        <div className={components}>
+    <ReactThemeProvider themeClasses={supportedThemes} defaultTheme="Cool Theme">
+      <div className={`${playground} not-content`}>
+        <div className={componentDemo}>
+          <Component {...propsState} />
+        </div>
+        <div className={controls}>
+          <p className={title}>Playground</p>
+          <ThemeSelect />
+          <hr style={{ border: "solid 1px var(--sl-color-bg-accent)", borderRadius: "1px" }} />
           {propData.map((propConfig, index) => {
             if (!propConfig.control) return null;
             const label = propConfig.label ?? propConfig.propName.toString();
@@ -170,6 +186,6 @@ export const ComponentPlayground = <
           })}
         </div>
       </div>
-    </div>
+    </ReactThemeProvider>
   );
 };

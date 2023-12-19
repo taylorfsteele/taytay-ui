@@ -18,12 +18,12 @@ for (const themeName in themes) {
   createVanillaCSSConfigWithLayer(tokenValues, themeName);
   createVanillaCSSConfigWithLayerWithTheme(tokenValues, themeName);
 
-  // CSS Modules
-  createCSSModulesConfig(tokenValues, themeName);
-  createCSSModulesConfigWithLayer(tokenValues, themeName);
-
   // Tailwind
   createTailwindConfig(tokenValues, themeName);
 }
 
 createThemeTokenExports(themes);
+
+// CSS Modules
+createCSSModulesConfig(themes);
+createCSSModulesConfigWithLayer(themes);

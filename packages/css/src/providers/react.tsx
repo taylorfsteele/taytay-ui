@@ -9,7 +9,7 @@ import {
   type SetStateAction,
 } from "react";
 
-interface ThemeContextProps {
+interface ReactThemeContextProps {
   /**
    * The theme name as a type-safe string. Does not correspond to the emitted, hashed css class name, if applicable.
    */
@@ -24,7 +24,7 @@ interface ThemeContextProps {
   themeClass: string;
 }
 
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+const ReactThemeContext = createContext<ReactThemeContextProps | undefined>(undefined);
 
 interface ThemeProviderProps<UserProvidedThemes extends Record<string, string>> {
   /**
@@ -42,7 +42,7 @@ interface ThemeProviderProps<UserProvidedThemes extends Record<string, string>> 
   themeClasses: UserProvidedThemes;
 }
 
-export const ThemeProvider = <UserProvidedThemes extends Record<string, string>>({
+export const ReactThemeProvider = <UserProvidedThemes extends Record<string, string>>({
   children,
   defaultTheme,
   themeClasses,
@@ -51,7 +51,7 @@ export const ThemeProvider = <UserProvidedThemes extends Record<string, string>>
   const themeClass = themeClasses[theme] ?? "";
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, themeClass }}>
+    <ReactThemeContext.Provider value={{ theme, setTheme, themeClass }}>
       {typeof children === "function" ? (
         children(themeClass)
       ) : (
@@ -59,12 +59,12 @@ export const ThemeProvider = <UserProvidedThemes extends Record<string, string>>
           {children}
         </div>
       )}
-    </ThemeContext.Provider>
+    </ReactThemeContext.Provider>
   );
 };
 
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
+export const useReactTheme = () => {
+  const context = useContext(ReactThemeContext);
 
   if (context === undefined) {
     throw new Error("useTheme must be used within a ThemeProvider");
