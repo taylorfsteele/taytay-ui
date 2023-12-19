@@ -10,7 +10,7 @@ export interface ButtonProps {
 
 export const Button = ({ children, disabled, type }: ButtonProps) => {
   return (
-    <button type={type} disabled={disabled}>
+    <button type={type} disabled={disabled} style={{ color: "var(--brandPrimary)" }}>
       {children}
     </button>
   );
