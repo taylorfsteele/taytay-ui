@@ -10,7 +10,7 @@ type Story = StoryObj<typeof meta>;
 export const ButtonStory: Story = {
   name: "Button",
   args: {
-    children: "sup",
+    children: "BUTTON",
   },
 };
 
