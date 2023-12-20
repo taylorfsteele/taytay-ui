@@ -2,6 +2,10 @@ module.exports = {
   theme: {
     brandPrimary: "coral",
     brandSecondary: "darkslateblue",
+    accentBadge: "burlywood",
+    feedbackErrorDark: "indianred",
+    feedbackSuccess: "darkseagreen",
+    feedbackWarning: "lightgoldenrodyellow",
     gray: {
       100: "#CACACA",
       200: "#A8A9AD",

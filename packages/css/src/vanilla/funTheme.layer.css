@@ -2,6 +2,10 @@
   :root {
     --brandPrimary: coral;
     --brandSecondary: darkslateblue;
+    --accentBadge: burlywood;
+    --feedbackErrorDark: indianred;
+    --feedbackSuccess: darkseagreen;
+    --feedbackWarning: lightgoldenrodyellow;
     --gray100: #cacaca;
     --gray200: #a8a9ad;
     --gray300: #969eab;
