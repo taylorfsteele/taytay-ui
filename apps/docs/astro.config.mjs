@@ -9,10 +9,14 @@ export default defineConfig({
     starlight({
       components: {
         Head: "./src/components/Head.astro",
+        PageTitle: "./src/components/PageTitle.astro",
       },
       title: "TayTay UI",
       social: {
         github: "https://github.com/taylorfsteele/taytay-ui",
+      },
+      editLink: {
+        baseUrl: "https://github.com/taylorfsteele/taytay-ui/edit/main/apps/docs/",
       },
       sidebar: [
         {
