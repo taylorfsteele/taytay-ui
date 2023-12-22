@@ -1,6 +1,8 @@
 import { cva } from "cva";
-import {
-  button as buttonStyles,
+import styles from "./Button.module.css";
+
+const {
+  button: buttonStyles,
   disabled,
   fullWidth,
   primary,
@@ -20,7 +22,7 @@ import {
   md,
   lg,
   xl,
-} from "./Button.module.css";
+} = styles;
 
 const colors = {
   primary,
