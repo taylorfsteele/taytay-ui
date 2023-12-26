@@ -2,6 +2,10 @@ module.exports = {
   theme: {
     brandPrimary: "skyblue",
     brandSecondary: "deeppink",
+    accentBadge: "aqua",
+    feedbackErrorDark: "red",
+    feedbackSuccess: "lawngreen",
+    feedbackWarning: "darkorange",
     gray: {
       100: "#CACACA",
       200: "#A8A9AD",

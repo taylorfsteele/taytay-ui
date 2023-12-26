@@ -2,7 +2,7 @@ import * as RadioGroup from "@radix-ui/react-radio-group";
 import { ReactThemeProvider, useReactTheme } from "@taytay-ui/css";
 import { coolTheme, funTheme } from "@taytay-ui/css/css-modules/themes.layer.module.css";
 import { Button, type ButtonProps } from "@taytay-ui/react";
-import { useState, type ComponentType, type InputHTMLAttributes } from "react";
+import { useState, type ComponentType, type InputHTMLAttributes, Fragment } from "react";
 import {
   componentDemo,
   controls,
@@ -82,12 +82,12 @@ const RadioControl = ({
     <span>{label}</span>
     <RadioGroup.Root className={radioComponent} defaultValue={defaultValue} onValueChange={onValueChange}>
       {options.map((option, index) => (
-        <>
-          <RadioGroup.Item className={item} value={option} id={`rg-${index}`}>
+        <Fragment key={index}>
+          <RadioGroup.Item className={item} value={option} id={`rg-${option}`}>
             <RadioGroup.Indicator className={indicator} />
           </RadioGroup.Item>
-          <label htmlFor={`rg-${index}`}>{option}</label>
-        </>
+          <label htmlFor={`rg-${option}`}>{option}</label>
+        </Fragment>
       ))}
     </RadioGroup.Root>
   </div>
@@ -98,8 +98,8 @@ const ThemeSelect = () => {
 
   return (
     <select name="theme" onChange={(e) => setTheme(e.target.value)}>
-      {Object.keys(supportedThemes).map((themeName) => (
-        <option selected={themeName === theme} value={themeName}>
+      {Object.keys(supportedThemes).map((themeName, index) => (
+        <option key={index} selected={themeName === theme} value={themeName}>
           {themeName}
         </option>
       ))}

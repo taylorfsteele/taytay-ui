@@ -43,14 +43,15 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
-    "@storybook/addon-essentials": "^7.6.4",
-    "@storybook/addon-interactions": "^7.6.4",
-    "@storybook/addon-links": "^7.6.4",
-    "@storybook/addon-themes": "^7.6.4",
-    "@storybook/blocks": "^7.6.4",
-    "@storybook/react": "^7.6.4",
-    "@storybook/react-vite": "^7.6.4",
-    "@storybook/test": "^7.6.4",
+    "@storybook/addon-essentials": "^7.6.6",
+    "@storybook/addon-interactions": "^7.6.6",
+    "@storybook/addon-links": "^7.6.6",
+    "@storybook/addon-themes": "^7.6.6",
+    "@storybook/blocks": "^7.6.6",
+    "@storybook/react": "^7.6.6",
+    "@storybook/react-vite": "^7.6.6",
+    "@storybook/test": "^7.6.6",
+    "@storybook/testing-library": "^0.2.2",
     "@taytay-ui/eslint-config": "workspace:*",
     "@taytay-ui/typescript-config": "workspace:*",
     "@testing-library/jest-dom": "^6.1.5",
@@ -68,13 +69,15 @@
     "rollup": "^4.8.0",
     "rollup-plugin-node-externals": "^6.1.2",
     "rollup-plugin-preserve-directives": "^0.2.0",
-    "storybook": "^7.6.4",
+    "rollup-plugin-styles": "^4.0.0",
+    "storybook": "^7.6.6",
     "typescript": "^5.3.3",
     "typescript-plugin-css-modules": "^5.0.2",
     "vite": "^5.0.8",
     "vitest": "^1.0.4"
   },
   "dependencies": {
-    "@taytay-ui/css": "workspace:^"
+    "@taytay-ui/css": "workspace:^",
+    "cva": "1.0.0-beta.1"
   }
 }

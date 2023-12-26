@@ -13,10 +13,11 @@
 
 .componentDemo {
   display: flex;
-  padding: 1.5rem;
-  align-self: center;
-  justify-content: center;
+  flex-direction: column;
   flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
 }
 
 .controls {

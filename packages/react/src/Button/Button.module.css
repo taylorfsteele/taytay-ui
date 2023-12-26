@@ -1,0 +1,130 @@
+@layer taytay-ui {
+  .button {
+    --selected-color: var(--brandPrimary);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px transparent solid;
+    border-radius: 4px;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    color: var(--selected-color);
+    gap: 0.5rem;
+
+    &:active {
+      opacity: 0.7;
+      scale: 0.97;
+    }
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:active {
+      opacity: 0.5;
+      scale: unset;
+    }
+  }
+
+  .fullWidth {
+    width: 100%;
+  }
+
+  .xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .md {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    padding: 1.25rem 2rem;
+  }
+
+  .xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    padding: 1.5rem 2.5rem;
+  }
+
+  .primary {
+    --selected-color: var(--brandPrimary);
+  }
+
+  .secondary {
+    --selected-color: var(--brandSecondary);
+  }
+  .neutral {
+    --selected-color: var(--gray600);
+  }
+  .danger {
+    --selected-color: var(--feedbackErrorDark);
+  }
+  .info {
+    --selected-color: var(--accentBadge);
+  }
+  .success {
+    --selected-color: var(--feedbackSuccess);
+  }
+  .warning {
+    --selected-color: var(--feedbackWarning);
+  }
+
+  .plain {
+    background-color: transparent;
+    /* transition: background-color 150ms; https://crbug.com/1464035 */
+
+    &:hover {
+      background-color: color-mix(in srgb, currentcolor 10%, transparent);
+    }
+  }
+
+  .outline {
+    background-color: transparent;
+    border: currentColor solid 1px;
+    /* transition: background-color 150ms; https://crbug.com/1464035 */
+
+    &:hover {
+      background-color: color-mix(in srgb, currentcolor 10%, transparent);
+    }
+  }
+
+  .soft {
+    transition: filter 150ms;
+    background-color: color-mix(in srgb, currentcolor 15%, white);
+
+    &:hover {
+      filter: brightness(95%);
+    }
+  }
+
+  .solid {
+    background-color: var(--selected-color);
+    color: white;
+    transition: filter 150ms;
+
+    &:hover {
+      filter: brightness(105%);
+    }
+  }
+
+  .achromatic {
+    --selected-color: unset;
+    background: none;
+  }
+}

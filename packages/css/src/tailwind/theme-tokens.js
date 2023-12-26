@@ -1,6 +1,10 @@
 export const coolThemeThemeTokens = {
   brandPrimary: "skyblue",
   brandSecondary: "deeppink",
+  accentBadge: "aqua",
+  feedbackErrorDark: "red",
+  feedbackSuccess: "lawngreen",
+  feedbackWarning: "darkorange",
   gray: {
     100: "#CACACA",
     200: "#A8A9AD",
@@ -17,6 +21,10 @@ export const coolThemeThemeTokens = {
 export const funThemeThemeTokens = {
   brandPrimary: "coral",
   brandSecondary: "darkslateblue",
+  accentBadge: "burlywood",
+  feedbackErrorDark: "indianred",
+  feedbackSuccess: "darkseagreen",
+  feedbackWarning: "lightgoldenrodyellow",
   gray: {
     100: "#CACACA",
     200: "#A8A9AD",

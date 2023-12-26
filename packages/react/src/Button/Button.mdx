@@ -1,0 +1,130 @@
+import { Canvas, Meta, Source, ArgTypes } from "@storybook/blocks";
+
+import * as ButtonStories from "./Button.stories.tsx";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+- Status: Needs Themes 🚧
+- Import: `import { Button } from '@taytay-ui/react'`
+- Polymorphic
+- Source: [View Source Code](https://github.com/taylorfsteele/taytay-ui/blob/main/packages/react/src/Button/Button.tsx)
+- Docs: [Edit this Page](https://github.com/taylorfsteele/taytay-ui/blob/main/packages/react/src/Button/Button.mdx)
+
+Buttons allow users to take actions and make choices with a single tap.
+
+<Canvas of={ButtonStories.ButtonStory} />
+
+## Props
+
+### Handling Clicks
+
+Buttons accept an `onClick` handler that is applied to the button element.
+
+<Source
+  dark
+  code={`<Button
+  onClick={() => {
+    alert('clicked');
+  }}
+>
+  Click me
+</Button>`}
+/>
+
+### Variants
+
+The Button comes with five variants: `plain`, `outline`, `soft`, `solid` (default), and `achromatic`.
+
+<Canvas
+  of={ButtonStories.Variants}
+  source={{
+    language: "tsx",
+    code: `
+<Button variant="plain">plain</Button>
+<Button variant="outline">outline</Button>
+<Button variant="soft">soft</Button>
+<Button variant="solid">solid</Button>
+<Button variant="achromatic">achromatic</Button>
+`,
+  }}
+/>
+
+### Sizes
+
+Use the `size` prop to change the size of the button.
+
+<Canvas
+  of={ButtonStories.Sizes}
+  source={{
+    language: "tsx",
+    code: `<Button size="2xl">Button</Button>
+<Button size="xl">Button</Button>
+<Button size="lg">Button</Button>
+<Button size="md">Button</Button>
+<Button size="sm">Button</Button>
+<Button size="xxs">Button</Button>`,
+  }}
+/>
+
+### Colors
+
+Button supports the palette included in Ripley. Use the color prop to change the color.
+
+<Canvas
+  of={ButtonStories.Colors}
+  source={{
+    language: "tsx",
+    code: `<Button color="primary">primary</Button>
+<Button color="secondary">secondary</Button>
+<Button color="neutral">neutral</Button>
+<Button color="danger">danger</Button>
+<Button color="info">info</Button>
+<Button color="success">success</Button>
+<Button color="warning">warning</Button>`,
+  }}
+/>
+
+### Links and Polymorphism
+
+Use the `as` prop to create a hyperlink. Pass an `a` tag to the prop to change the root element.
+
+<Canvas of={ButtonStories.Link} source={{ code: `<Button as="a">I'm an anchor element</Button>` }} />
+
+### Button with Icons and Labels
+
+If you want to enhance the UX of your button with an icon, compose them within the `children` of the button:
+
+<Canvas
+  of={ButtonStories.ButtonWithIconAndLabel}
+  source={{
+    code: `<Button variant="outlined">
+  <>
+    <DeleteIcon />
+    Delete
+  </>
+</Button>
+<Button variant="solid">
+  <>
+    Send 
+    <SendIcon />
+  </>
+</Button>`,
+  }}
+/>
+
+## Anatomy
+
+The Button is composed of a single root `<button>` element that wraps its contents.
+
+<Source
+  dark
+  code={`<button>
+  {children}
+</button>`}
+/>
+
+## API
+
+<ArgTypes of={ButtonStories} sort="alpha" />

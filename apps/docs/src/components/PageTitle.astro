@@ -1,0 +1,129 @@
+---
+import type { Props } from "@astrojs/starlight/props";
+import StarlightPageTitle from "@astrojs/starlight/components/PageTitle.astro";
+import { Code } from "astro:components";
+import { Icon } from "@astrojs/starlight/components";
+import { Icon as AstroIcon } from "astro-icon";
+
+const { props }: { props: Props } = Astro;
+const importCode = `import { ${props.entry.data.title} } from '@taytay-ui/react'`;
+const { description, headerItems, sourceLink } = props.entry.data;
+---
+
+<StarlightPageTitle {...props} />
+<p class="description">{description}</p>
+{
+  headerItems && (
+    <div class="items">
+      <div class="header-item import">
+        <p class="item-label">Import</p>
+        <button class="import-button" id="import" data-importcode={importCode}>
+          <Code code={importCode} theme="css-variables" lang="js" />
+        </button>
+      </div>
+      {sourceLink && (
+        <div class="header-item">
+          <p class="item-label">Source</p>
+          <a href={sourceLink}>
+            <Icon name="github" color="var(--sl-color-text-accent)" />
+            View source code
+          </a>
+        </div>
+      )}
+      <div class="header-item">
+        <p class="item-label">Docs</p>
+        <a href={props.editUrl}>
+          <Icon name="pencil" color="var(--sl-color-text-accent)" />
+          Edit this page
+        </a>
+      </div>
+      <div class="header-item">
+        <p class="item-label">Frameworks</p>
+        <a class="icon-link">
+          <AstroIcon name="logos:react" size="1.5rem" />
+        </a>
+        <a class="icon-link">
+          <AstroIcon name="logos:solidjs-icon" size="1.5rem" />
+        </a>
+        <a class="icon-link">
+          <AstroIcon name="logos:webcomponents" size="1.5rem" />
+        </a>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .items {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .description {
+    font-size: 1.25rem;
+    color: var(--sl-color-text-accent);
+    margin: 0;
+  }
+
+  .header-item {
+    display: flex;
+    margin: 0;
+
+    &.import {
+      display: none;
+
+      @media screen and (min-width: 36rem) {
+        display: flex;
+      }
+    }
+
+    .item-label {
+      width: 6.25rem;
+      min-width: 6.25rem;
+    }
+
+    a {
+      color: var(--sl-color-text-accent);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .import-button {
+    --astro-code-color-background: transparent;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    &:hover {
+      outline: 1px solid var(--sl-color-accent-low);
+      border-radius: 4px;
+    }
+  }
+
+  .icon-link {
+    display: flex;
+    align-items: center;
+    padding-right: 0.5rem;
+  }
+</style>
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>("button#import");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.importcode || "");
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
+    });
+  });
+</script>

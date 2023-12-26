@@ -1,6 +1,8 @@
 ---
 title: Button
-description: Button docs
+description: Buttons allow users to take actions and make choices with a single tap.
+headerItems: true
+sourceLink: https://github.com/taylorfsteele/taytay-ui/blob/main/packages/react/src/Button/Button.tsx
 ---
 
 import { ComponentPlayground } from "../../../components/ComponentPlayground";
@@ -10,7 +12,9 @@ import { ComponentPlayground } from "../../../components/ComponentPlayground";
   component="Button"
   propData={[
     { propName: "disabled", defaultValue: false, control: "switch" },
-    { propName: "children", defaultValue: "Hi Mom", control: 'input', label: 'Placeholder' },
-    { propName: "type", defaultValue: "button", control: 'radio', options: ['button', 'submit', 'reset'] },
+    { propName: 'color', defaultValue: 'primary', control: 'radio', options: ['primary', 'secondary', 'info'] },
+    { propName: 'children', defaultValue: 'BUTTON', },
+    { propName: 'size', defaultValue: 'md', control: 'radio', options: ['sm', 'md', 'lg'] },
+    { propName: 'variant', defaultValue: 'solid', control: 'radio', options: ['solid', 'outline', 'plain'] },
   ]}
 />
