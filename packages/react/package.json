@@ -51,6 +51,7 @@
     "@storybook/react": "^7.6.6",
     "@storybook/react-vite": "^7.6.6",
     "@storybook/test": "^7.6.6",
+    "@storybook/testing-library": "^0.2.2",
     "@taytay-ui/eslint-config": "workspace:*",
     "@taytay-ui/typescript-config": "workspace:*",
     "@testing-library/jest-dom": "^6.1.5",
