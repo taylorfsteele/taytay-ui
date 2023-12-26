@@ -57,3 +57,5 @@ export const Button = polymorphicForwardRef<"button", ButtonProps>(
     </Component>
   ),
 );
+
+Button.displayName = "Button";
