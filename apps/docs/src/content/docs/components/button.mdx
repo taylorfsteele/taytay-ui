@@ -6,6 +6,7 @@ sourceLink: https://github.com/taylorfsteele/taytay-ui/blob/main/packages/react/
 ---
 
 import { ComponentPlayground } from "../../../components/ComponentPlayground";
+import {PropsTable} from "../../../components/PropsTable"
 
 <ComponentPlayground
   client:load
@@ -18,3 +19,14 @@ import { ComponentPlayground } from "../../../components/ComponentPlayground";
     { propName: 'variant', defaultValue: 'solid', control: 'radio', options: ['solid', 'outline', 'plain'] },
   ]}
 />
+
+
+
+<PropsTable data={[
+      {
+        name: "Color",
+        description:
+          "the color Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium corporis perspiciatis amet dolore nobis, dolores voluptatum laborum, dolorem assumenda magnam laboriosam, cupiditate adipisci enim ut dolorum accusantium. Temporibus, provident qui.",
+        type: "colorrr colorrr colorrr colorrrcolorrrcolorrrcolorrrcolorrrcolorrr colorrr colorrr",
+      },
+    ]}/>

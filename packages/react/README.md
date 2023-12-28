@@ -1,0 +1,1 @@
+Waiting on this issue to be resolved: https://github.com/reactjs/react-docgen/issues/878
