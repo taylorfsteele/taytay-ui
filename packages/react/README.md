@@ -1,1 +1,2 @@
-Waiting on this issue to be resolved: https://github.com/reactjs/react-docgen/issues/878
+- Waiting on this issue to be resolved: https://github.com/reactjs/react-docgen/issues/878
+- I'm not sold on the current method of sharing documentation between Storybook and the Docs site. It could be better.
