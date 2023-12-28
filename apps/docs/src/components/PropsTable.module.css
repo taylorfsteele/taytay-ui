@@ -1,0 +1,9 @@
+table.table {
+  width: 100%;
+  display: table;
+  text-align: left;
+}
+
+.type {
+  min-width: 90px;
+}

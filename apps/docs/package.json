@@ -14,6 +14,7 @@
     "@astrojs/react": "^3.0.7",
     "@astrojs/starlight": "^0.15.0",
     "@radix-ui/react-radio-group": "^1.1.3",
+    "@tanstack/react-table": "^8.11.2",
     "@taytay-ui/css": "workspace:^",
     "@taytay-ui/react": "workspace:^",
     "@types/react": "^18.2.43",
