@@ -1,9 +1,9 @@
 import { createColumnHelper, useReactTable, getCoreRowModel, flexRender } from "@tanstack/react-table";
-import { table as tableStyles } from "./PropsTable.module.css";
+import { table as tableStyles, type } from "./PropsTable.module.css";
 
 type DataDefinitions = {
   name: string;
-  type: string;
+  type: string[];
   description: string;
 };
 
@@ -15,8 +15,14 @@ const columns = [
     header: "Name",
   }),
   columnHelper.accessor("type", {
-    cell: (info) => info.getValue(),
-    header: "Type",
+    cell: (info) =>
+      info.getValue().map((value, index) => (
+        <>
+          <code>{value}</code>
+          {index !== info.getValue().length - 1 && " | "}
+        </>
+      )),
+    header: () => <div className={type}>Type</div>,
   }),
   columnHelper.accessor("description", {
     cell: (info) => info.getValue(),

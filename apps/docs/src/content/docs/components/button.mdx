@@ -6,27 +6,169 @@ sourceLink: https://github.com/taylorfsteele/taytay-ui/blob/main/packages/react/
 ---
 
 import { ComponentPlayground } from "../../../components/ComponentPlayground";
-import {PropsTable} from "../../../components/PropsTable"
+import { PropsTable } from "../../../components/PropsTable";
 
 <ComponentPlayground
   client:load
   component="Button"
   propData={[
     { propName: "disabled", defaultValue: false, control: "switch" },
-    { propName: 'color', defaultValue: 'primary', control: 'radio', options: ['primary', 'secondary', 'info'] },
-    { propName: 'children', defaultValue: 'BUTTON', },
-    { propName: 'size', defaultValue: 'md', control: 'radio', options: ['sm', 'md', 'lg'] },
-    { propName: 'variant', defaultValue: 'solid', control: 'radio', options: ['solid', 'outline', 'plain'] },
+    {
+      propName: "color",
+      defaultValue: "primary",
+      control: "radio",
+      options: ["primary", "secondary", "info"],
+    },
+    { propName: "children", defaultValue: "BUTTON" },
+    { propName: "size", defaultValue: "md", control: "radio", options: ["sm", "md", "lg"] },
+    { propName: "variant", defaultValue: "solid", control: "radio", options: ["solid", "outline", "plain"] },
   ]}
 />
 
+import {
+  anatomy,
+  colors,
+  description,
+  handlingClicks,
+  icons,
+  polymorphism,
+  sizes,
+  variants,
+  handleClickCode,
+  variantsCode,
+  sizesCode,
+  colorsCode,
+  polymorphismCode,
+  iconsCode,
+  anatomyCode,
+  Cool,
+} from "../../../../../../packages/react/src/Button/Button.mdx";
 
+## Props
 
-<PropsTable data={[
-      {
-        name: "Color",
-        description:
-          "the color Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium corporis perspiciatis amet dolore nobis, dolores voluptatum laborum, dolorem assumenda magnam laboriosam, cupiditate adipisci enim ut dolorum accusantium. Temporibus, provident qui.",
-        type: "colorrr colorrr colorrr colorrrcolorrrcolorrrcolorrrcolorrrcolorrr colorrr colorrr",
-      },
-    ]}/>
+### Handling Clicks
+
+<p>{handlingClicks}</p>
+
+```tsx
+<Button
+  onClick={() => {
+    alert("clicked");
+  }}
+>
+  Click me
+</Button>
+```
+
+### Variants
+
+<p>{variants}</p>
+
+```tsx
+<Button variant="plain">plain</Button>
+<Button variant="outline">outline</Button>
+<Button variant="soft">soft</Button>
+<Button variant="solid">solid</Button>
+<Button variant="achromatic">achromatic</Button>
+```
+
+### Sizes
+
+<p>{sizes}</p>
+
+```tsx
+<Button size="2xl">Button</Button>
+<Button size="xl">Button</Button>
+<Button size="lg">Button</Button>
+<Button size="md">Button</Button>
+<Button size="sm">Button</Button>
+<Button size="xxs">Button</Button>
+```
+
+### Colors
+
+<p>{colors}</p>
+
+```tsx
+<Button color="primary">primary</Button>
+<Button color="secondary">secondary</Button>
+<Button color="neutral">neutral</Button>
+<Button color="danger">danger</Button>
+<Button color="info">info</Button>
+<Button color="success">success</Button>
+<Button color="warning">warning</Button>
+```
+
+### Links and Polymorphism
+
+<p>{polymorphism}</p>
+
+```tsx
+<Button as="a">I'm an anchor element</Button>
+```
+
+### Button with Icons and Labels
+
+<p>{icons}</p>
+
+```tsx
+<Button variant="outlined">
+  <>
+    <DeleteIcon />
+    Delete
+  </>
+</Button>
+<Button variant="solid">
+  <>
+    Send
+    <SendIcon />
+  </>
+</Button>
+```
+
+## Anatomy
+
+<p>{anatomy}</p>
+
+```tsx
+<button>{children}</button>
+```
+
+## Props
+
+The button extends the built-in `button` element props, and supports the following props:
+
+<PropsTable
+  data={[
+    {
+      name: " children",
+      type: ["ReactNode"],
+      description: "The button content.",
+    },
+    {
+      name: " color",
+      type: ["Colors"],
+      description: "The color of the component, dictated by the current theme.",
+    },
+    {
+      name: " disabled",
+      type: ["boolean"],
+      description: "Determines if button is disabled.",
+    },
+    {
+      name: " fullWidth",
+      type: ["boolean"],
+      description: "Determines if button takes full width of container.",
+    },
+    {
+      name: "size",
+      type: ["xs" , "sm" , "md" , "lg" , "xl"],
+      description: "Determines size of component. Default: `md`",
+    },
+    {
+      name: "variant",
+      type: ["Variants"],
+      description: "The variant to use.",
+    },
+  ]}
+/>
