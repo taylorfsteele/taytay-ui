@@ -1,9 +1,7 @@
 import { type HTMLAttributes, type ReactNode } from "react";
 import { polymorphicForwardRef } from "../polymorphicForwardRef/polymorphicForwardRef";
+import type { Colors, Variants } from "../types";
 import { button } from "./Button.variants";
-
-type Colors = "primary" | "secondary" | "neutral" | "danger" | "info" | "success" | "warning";
-type Variants = "outline" | "solid" | "plain" | "soft" | "achromatic";
 
 export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   /**
