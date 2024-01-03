@@ -13,7 +13,7 @@ export default defineConfig({
         "100": true,
       },
       include: ["src/"],
-      exclude: ["src/index.ts", "src/**/*.stories.{ts,tsx}", "src/**/*.test.{ts,tsx}"],
+      exclude: ["src/index.ts", "src/**/*.stories.{ts,tsx}", "src/**/*.test.{ts,tsx}", "src/types.ts"],
     },
     environment: "happy-dom",
     globals: true,

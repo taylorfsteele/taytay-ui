@@ -20,18 +20,23 @@ export default defineConfig([
       warn(warning);
     },
     plugins: [
-      // TODO: Generate CSS files in /styles directory instead of using postcss & inject-styles
+      nodeResolve(),
+      typescript({
+        exclude: [
+          "vite.config.ts",
+          "src/**/*.stories.{ts,tsx}",
+          "src/**/*.test.{ts,tsx}",
+          "testSetup.ts",
+          "./.storybook/*",
+        ],
+        inlineSourceMap: true,
+      }),
       styles({
         modules: true,
         mode: "extract",
         namedExports: true,
       }),
       depsExternal(),
-      nodeResolve(),
-      typescript({
-        exclude: ["vite.config.ts", "src/**/*.stories.{ts,tsx}", "src/**/*.test.{ts,tsx}"],
-        inlineSourceMap: true,
-      }),
       preserveDirectives(),
     ],
     output: {
