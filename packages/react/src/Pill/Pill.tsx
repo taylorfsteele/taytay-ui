@@ -25,7 +25,7 @@ export interface PillProps extends HTMLAttributes<HTMLSpanElement> {
   /**
    * The color of the component, dictated by the current theme.
    */
-  color: Colors;
+  color?: Colors;
   /**
    * If `true`, the component is disabled.
    */
