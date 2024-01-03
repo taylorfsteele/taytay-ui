@@ -8,8 +8,20 @@ on:
 jobs:
   install:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      react: ${{ steps.filter.outputs.react }}
 
     steps:
+      - name: Check Package Changes
+        uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            react:
+              - 'packages/react/**'
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -34,20 +46,6 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
-        
-  changes:
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: read
-    outputs:
-      react: ${{ steps.filter.outputs.react }}
-    steps:
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-          react:
-            - 'packages/react/**'
 
   test:
     runs-on: ubuntu-latest
@@ -92,7 +90,7 @@ jobs:
     needs: [install, changes]
     if: needs.changes.outputs.react == 'true'
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
