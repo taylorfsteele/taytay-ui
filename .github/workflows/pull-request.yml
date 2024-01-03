@@ -34,6 +34,20 @@ jobs:
             ${{ runner.os }}-pnpm-store-
       - name: Install dependencies
         run: pnpm install
+        
+  changes:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    outputs:
+      react: ${{ steps.filter.outputs.react }}
+    steps:
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          react:
+            - 'packages/react/**'
 
   test:
     runs-on: ubuntu-latest
@@ -73,6 +87,55 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+  storybook-test:
+    needs: [install, changes]
+    if: needs.changes.outputs.react == 'true'
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+      - name: Restore cached pnpm install
+        id: cache-pnpm-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - if: ${{ steps.cache-pnpm-restore.outputs.cache-hit != 'true' }}
+        name: List the state of node modules
+        continue-on-error: true
+        run: pnpm list
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Install Playwright
+        run: pnpx playwright install --with-deps
+
+      - name: Build Storybook
+        run: pnpm run build:ui-storybook
+
+      - name: Serve Storybook and Run Tests
+        run: |
+          pnpx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+            "pnpx http-server packages/react/storybook-static --port 6006 --silent" \
+            "pnpx wait-on tcp:6006 && pnpm run test:storybook"
 
   lint:
     runs-on: ubuntu-latest
