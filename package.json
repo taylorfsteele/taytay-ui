@@ -1,10 +1,12 @@
 {
   "name": "@taytay-ui",
   "private": true,
+  "author": "Taylor Steele",
   "scripts": {
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "turbo test",
+    "test:storybook": "turbo test:storybook",
     "build": "turbo build",
     "build:storybook": "turbo build:storybook",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish"
