@@ -35,3 +35,31 @@ article.card {
 	--sl-color-gray-7: #f3f7f9;
 	--sl-color-black: #ffffff;
 }
+
+@font-face {
+	font-family: 'Heyam';
+	src: url('/fonts/Heyam.ttf') format("truetype");
+	font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+	font-family: 'Hello-Headline';
+	src: url('/fonts/Hello-Headline.ttf') format("truetype");
+	font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.site-title {
+	font-family: 'Heyam', sans-serif;
+}
+
+.heyam {
+	font-family: 'Heyam', sans-serif;
+}
+
+.hello-headline {
+	font-family: 'Hello-Headline', sans-serif;
+}
