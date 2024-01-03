@@ -90,6 +90,8 @@ jobs:
     needs: install
     if: needs.install.outputs.react == 'true'
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.40.0-jammy
 
     steps:
       - name: Checkout
