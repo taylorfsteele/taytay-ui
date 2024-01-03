@@ -129,7 +129,7 @@ jobs:
         run: pnpx playwright install --with-deps
 
       - name: Build Storybook
-        run: pnpm run build:ui-storybook
+        run: pnpm run build:storybook
 
       - name: Serve Storybook and Run Tests
         run: |
