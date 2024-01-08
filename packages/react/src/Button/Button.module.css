@@ -1,6 +1,6 @@
 @layer taytay-ui {
   .button {
-    --selected-color: var(--brandPrimary);
+    --selected-color: var(--primary);
 
     display: inline-flex;
     align-items: center;
@@ -63,26 +63,26 @@
   }
 
   .primary {
-    --selected-color: var(--brandPrimary);
+    --selected-color: var(--primary);
   }
 
   .secondary {
-    --selected-color: var(--brandSecondary);
+    --selected-color: var(--secondary);
   }
   .neutral {
-    --selected-color: var(--gray600);
+    --selected-color: var(--neutral);
   }
   .danger {
-    --selected-color: var(--feedbackErrorDark);
+    --selected-color: var(--danger);
   }
   .info {
-    --selected-color: var(--accentBadge);
+    --selected-color: var(--info);
   }
   .success {
-    --selected-color: var(--feedbackSuccess);
+    --selected-color: var(--success);
   }
   .warning {
-    --selected-color: var(--feedbackWarning);
+    --selected-color: var(--warning);
   }
 
   .plain {

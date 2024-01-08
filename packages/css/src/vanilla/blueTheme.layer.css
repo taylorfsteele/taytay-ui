@@ -1,0 +1,12 @@
+@layer taytay-ui {
+  :root {
+    --primary: #3a3959;
+    --secondary: #94cef2;
+    --neutral: gray;
+    --danger: #c95050;
+    --info: #f2c879;
+    --success: mediumseagreen;
+    --warning: #ffbe00;
+    --black: #0d0d0d;
+  }
+}

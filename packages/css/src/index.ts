@@ -1,8 +1,8 @@
-import { coolTheme, funTheme } from "../tokens";
+import { blueTheme, orangeTheme } from "../tokens";
 
 export const themes = {
-  coolTheme,
-  funTheme,
+  blueTheme,
+  orangeTheme,
 };
 
 export type ThemeNames = keyof typeof themes;

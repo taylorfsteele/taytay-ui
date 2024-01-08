@@ -1,2 +1,2 @@
-declare const styles: { readonly coolTheme: string; readonly funTheme: string };
+declare const styles: { readonly blueTheme: string; readonly orangeTheme: string };
 export = styles;

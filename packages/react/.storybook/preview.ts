@@ -1,14 +1,14 @@
 import type { Preview } from "@storybook/react";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { coolTheme, funTheme } from "@taytay-ui/css/css-modules/themes.module.css";
+import { blueTheme, orangeTheme } from "@taytay-ui/css/css-modules/themes.module.css";
 
 const preview: Preview = {
   decorators: [
     // @ts-ignore
     withThemeByClassName({
       themes: {
-        fun: funTheme,
-        cool: coolTheme,
+        blue: blueTheme,
+        orange: orangeTheme,
       },
       defaultTheme: "fun",
     }),
