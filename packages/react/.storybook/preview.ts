@@ -10,7 +10,7 @@ const preview: Preview = {
         blue: blueTheme,
         orange: orangeTheme,
       },
-      defaultTheme: "fun",
+      defaultTheme: "blue",
     }),
   ],
   parameters: {
