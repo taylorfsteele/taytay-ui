@@ -1,0 +1,10 @@
+:root[data-theme="orangeTheme"] {
+  --primary: #d9753b;
+  --secondary: #f29e6d;
+  --neutral: gray;
+  --danger: #c95050;
+  --info: #592c12;
+  --success: lightgreen;
+  --warning: #ffbe00;
+  --black: #0d0d0d;
+}

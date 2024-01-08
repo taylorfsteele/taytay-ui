@@ -1,6 +1,6 @@
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import { ReactThemeProvider, useReactTheme } from "@taytay-ui/css";
-import { coolTheme, funTheme } from "@taytay-ui/css/css-modules/themes.layer.module.css";
+import { blueTheme, orangeTheme } from "@taytay-ui/css/css-modules/themes.layer.module.css";
 import { Button, type ButtonProps } from "@taytay-ui/react";
 import { useState, type ComponentType, type InputHTMLAttributes, Fragment } from "react";
 import {
@@ -15,7 +15,7 @@ import {
   title,
 } from "./ComponentPlayground.module.css";
 
-const supportedThemes = { "Cool Theme": coolTheme, "Fun Theme": funTheme };
+const supportedThemes = { "Blue Theme": blueTheme, "Orange Theme": orangeTheme };
 
 /**
  * We have to use this pattern of making a singleton of all the components
